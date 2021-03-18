@@ -15,4 +15,7 @@ export class Tab1Page implements OnInit{
     this.loadedPlaces=this.placeService.places;
     console.log(this.loadedPlaces);
   }
+  ionViewWillEnter(){
+    this.loadedPlaces=this.placeService.places;
+  }
 }

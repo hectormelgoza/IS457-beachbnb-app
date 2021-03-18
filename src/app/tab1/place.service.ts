@@ -37,5 +37,26 @@ export class PlaceService {
   get places(){
     return [...this._places]
   }
+  getPlace(id: string){
+    return{...this._places.find(p => p.id === id)}
+  }
+  addPlace(
+    title: string, 
+    description: string, 
+    price: number, 
+    dateFrom: Date, 
+    dateTo: Date){
+      const newPlace = new Place(
+        Math.random().toString(),
+        title,
+        description,
+        '../assets/imgs/nyc.jpg',
+        price,
+        dateFrom,
+        dateTo
+      );
+      this._places.push(newPlace)
+      console.log(this._places)
+    }
   constructor() { }
 }

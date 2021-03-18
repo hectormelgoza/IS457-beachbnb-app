@@ -3,6 +3,11 @@
     <ion-title>
       Offers
     </ion-title>
+    <ion-buttons slot='primary'>
+      <ion-button routerLink='/tabs/tab2/newoffer'>
+        <ion-icon name='add' slot='icon-only'></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +16,8 @@
     <ion-row>
       <ion-col size-md='8' offset-md='2'>
         <ion-list *ngFor='let offer of offers'>
-          <ion-item>
+          <ion-item [routerLink]="['/','tabs','tab2','offerdetail',offer.id]"
+          detail>
             <ion-thumbnail slot='start'>
               <img src={{offer.image}}>
             </ion-thumbnail>

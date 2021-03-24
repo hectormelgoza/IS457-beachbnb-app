@@ -19,7 +19,7 @@
             <p>Available To: {{place.availableTo | date}}</p>
           </ion-card-content>
         </ion-card>
-        <ion-button>
+        <ion-button [routerLink]="['/','tabs','tab2','editoffer',place.id]">
           Edit
         </ion-button>
       </ion-col>

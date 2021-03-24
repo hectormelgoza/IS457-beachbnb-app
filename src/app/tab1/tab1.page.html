@@ -23,6 +23,10 @@
           <ion-card-content>
             <p>{{loadedPlaces[0].description}}</p>
           </ion-card-content>
+          <ion-button
+          [routerLink]="['/','booking','createbooking',loadedPlaces[0].id]">
+            Book
+          </ion-button>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -30,7 +34,9 @@
     <ion-row>
       <ion-col size-md='8' offset-md='2'>
         <ion-list *ngFor='let place of loadedPlaces.slice(1)'>
-          <ion-item>
+          <ion-item
+          detail
+          [routerLink]="['/','booking','createbooking',place.id]">
             <ion-thumbnail slot='start'>
               <img src={{place.image}}>
             </ion-thumbnail>

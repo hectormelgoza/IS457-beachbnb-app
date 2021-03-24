@@ -55,8 +55,32 @@ export class PlaceService {
         dateFrom,
         dateTo
       );
-      this._places.push(newPlace)
-      console.log(this._places)
+      this._places.push(newPlace);
+      console.log(this._places);
     }
+    updateOffer(
+      placeId: string,
+      title: string,
+      description: string,
+      price: number,
+      dateFrom: Date,
+      dateTo: Date) {
+        const updatedPlaceIndex = this._places.findIndex(p1 => p1.id === placeId);
+        const oldPlace = this._places[updatedPlaceIndex];
+        this._places[updatedPlaceIndex] = new Place(
+          oldPlace.id,
+          title,
+          description,
+          oldPlace.image,
+          price,
+          dateFrom,
+          dateTo
+        )
+      }
+      removeOffer(id: string){
+        const position = this._places.findIndex(p => p.id === id);
+        this._places.splice(position,1);
+        console.log('removed');
+      }
   constructor() { }
 }
